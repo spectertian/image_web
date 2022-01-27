@@ -19,7 +19,7 @@ framework:
     #fragments: true
     php_errors:
         log: true
-#    error_controller: App\Controller\ErrorController::show
+    error_controller: App\Controller\ImgController::index
 
 when@test:
     framework:
