@@ -15,6 +15,12 @@ services:
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
+
+    Symfony\Component\HttpFoundation\Session\Storage\Handler\MongoDbSessionHandler:
+        arguments:
+            - '@doctrine_mongodb.odm.default_connection'
+            - { database: 'customer_session', collection: 'guid_image' }
+
     App\:
         resource: '../src/'
         exclude:
