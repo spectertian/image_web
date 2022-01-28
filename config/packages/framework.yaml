@@ -19,6 +19,7 @@ framework:
     #fragments: true
     php_errors:
         log: true
+    http_cache: true
     error_controller: App\Controller\ImgController::index
 
 when@test:
