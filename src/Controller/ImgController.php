@@ -24,7 +24,9 @@ class ImgController extends AbstractController
         $response = new StreamedResponse();
         $response->setPublic();
         $response->setMaxAge(3600);
-        $response->setExpires(date('Y-m-d H:i:s', strtotime('3 hours')));
+        $date = new DateTime();
+        $date->modify('+600 seconds');
+        $response->setExpires($date);
         // (optional) set a custom Cache-Control directive
         $response->headers->addCacheControlDirective('must-revalidate', true);
 
