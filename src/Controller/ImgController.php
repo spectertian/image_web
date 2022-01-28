@@ -24,12 +24,13 @@ class ImgController extends AbstractController
         $response = new StreamedResponse();
         $response->setPublic();
         $response->setMaxAge(3600);
+        $response->setExpires(date('Y-m-d H:i:s', strtotime('3 hours')));
         // (optional) set a custom Cache-Control directive
         $response->headers->addCacheControlDirective('must-revalidate', true);
 
 // forces the response to return a proper 304 response with no content
 //        $response->setNotModified();
-        $response->headers->set('Content-Type', "image/jpg");
+        $response->headers->set('Content-Type', "image/jpeg");
 
         $response->setCallback(function () use ($stream) {
             fpassthru($stream);
